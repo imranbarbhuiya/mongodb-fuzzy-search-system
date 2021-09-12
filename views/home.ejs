@@ -1,0 +1,63 @@
+<%- include('partial/header') %>
+    <div class=" container">
+        <center>
+            <div class="card" style="width: fit-content;">
+                <div class="card-body">
+                    <form action="/" method="POST">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" name="author" placeholder="Author Name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12"">
+                        <input type=" text" class="form-control" name="book" placeholder="Book Name" required>
+                            </div>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </center>
+        <br>
+        <%if(data.length>0){%>
+            <center>
+                <div style="width:auto; border-style: solid;border-color: black;">
+                    <table class="table table-border table-hover">
+                        <thead class="bg-warning">
+                            <tr>
+                                <th>
+                                    s.no
+                                </th>
+                                <th>
+                                    Author
+                                </th>
+                                <th>
+                                    Books
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for(var i=0;i< data.length;i++){%>
+                                <tr>
+                                    <td>
+                                        <%=i+1%>
+                                    </td>
+                                    <td>
+                                        <%=data[i].author%>
+                                    </td>
+                                    <td>
+                                        <%=data[i].books%>
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </center>
+            <%}%>
+
+    </div>
+
+    <%- include('partial/footer') %>
